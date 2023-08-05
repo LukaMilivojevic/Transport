@@ -1,7 +1,12 @@
 #ifndef  LINE_H
 #define LINE_H
 
+#include "Stop.h"
+
+#include <list>
 #include <string>
+
+using std::list;
 
 class Line
 {
@@ -10,10 +15,15 @@ public:
 
 	std::string getName();
 
+	void add_stop(const Stop&);
+
+	void print_stops();
+
 protected:
 
 private:
 	std::string line_name_;
+	list <const Stop*> line_stops_;
 };
 
 

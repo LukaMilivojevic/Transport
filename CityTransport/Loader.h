@@ -20,7 +20,10 @@ private:
 	std::string line_filepath_;
 	std::string stop_filepath_;
 	//std::unordered_map<Line*, std::list<Stop*>> map;
+	std::unordered_map<int, Stop*> stop_map;
+	std::unordered_map<int, const Stop*> line_stop_map;
 	std::list<Stop*> stops_;
+	std::list<Line*> lines;
 };
 
 
