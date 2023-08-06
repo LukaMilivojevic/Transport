@@ -4,6 +4,7 @@
 #include "Strategy.h"
 
 
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <queue>
@@ -61,21 +62,24 @@ void AnyPath::search(Graph& graph, int start, int stop)
 		string stop_name = "";
 		bool first_flag = true;
 		int prev;
+		std::string filepath = "stajaliste_" + std::to_string(start) + "_" + std::to_string(stop) + ".txt";
+		std::ofstream save_file;
+		save_file.open(filepath);
 		for (const auto& it : out) { 
 			if (stop_name != stop_line[it] && first_flag) {
 				stop_name = stop_line[it];
-				std::cout << "->" << stop_line[it] << std::endl;
+				save_file << "->" << stop_line[it] << std::endl;
 				first_flag = false;
 			}
 			else if (stop_name != stop_line[it]) {
-				std::cout << std::endl << "->" << stop_line[it] << std::endl;
+				save_file << std::endl << "->" << stop_line[it] << std::endl;
 				stop_name = stop_line[it];
-				std::cout << prev << " ";
+				save_file << prev << " ";
 			}
-			std::cout << it << " ";
+			save_file << it << " ";
 			prev = it;
 		}
-		std::cout << last;
+		save_file << last;
 		
 
 	}
