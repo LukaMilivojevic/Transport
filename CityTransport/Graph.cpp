@@ -8,7 +8,6 @@ using std::list;
 
 Graph::Graph(const list<Line*>& lines)
 {
-	st->search();
 	list<int> ids;
 	bool flag = false;
 	int curr_id;

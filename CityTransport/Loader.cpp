@@ -2,6 +2,7 @@
 #include "Loader.h"
 #include "Line.h"
 #include "Stop.h"
+#include "Strategy.h"
 
 #include <fstream>
 #include <iostream>
@@ -105,6 +106,12 @@ void Loader::save_stop(int id)
 			save_file << it->getId() << " ";
 	}
 	save_file << "!}";
+}
+
+void Loader::searchPath()
+{
+	strategy_ = new AnyPath;
+	strategy_->search(*graph_, 1212, 154);
 }
 
 

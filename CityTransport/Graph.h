@@ -9,7 +9,6 @@
 
 #include "Line.h"
 #include "Stop.h"
-#include "Strategy.h"
 
 #include <list>
 #include <set>
@@ -22,9 +21,8 @@ class Graph
 {
 public:
 	Graph(const list<Line*>&);
-	Strategy* st = new LeastChanges;
-	set<const Stop*>& find_adj_stops(int);
-	set<Line*>& find_lines_in_stop(int);
+	set<const Stop*>& find_adj_stops(int) ;
+	set<Line*>& find_lines_in_stop(int) ;
 
 protected:
 
