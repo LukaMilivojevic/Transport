@@ -5,19 +5,24 @@
 
 
 #include <iostream>
+#include <string>
 #include <queue>
 #include <unordered_map>
 
 using std::queue;
 using std::unordered_map;
+using std::string;
 
 
 void AnyPath::search(Graph& graph, int start, int stop)
 {
 	queue<int> qu;
 	unordered_map<int, int> visited;
+	unordered_map<int, string> stop_line;
 	qu.push(start);
 	visited[start] = start;
+	Line* line = *graph.find_lines_in_stop(start).begin();
+	stop_line[start] = line->getName();
 	int curr, curr_explored;
 	bool flag = true;
 	while (!qu.empty() && flag) {
@@ -28,12 +33,18 @@ void AnyPath::search(Graph& graph, int start, int stop)
 			curr_explored = it->getId();
 			if (curr_explored == stop) {
 				visited[curr_explored] = curr;
+				stop_line[curr_explored] = line->getName();
 				flag = false;
 				break;
 			}
 			if (!visited.count(curr_explored)) {
+				if (graph.find_lines_in_stop(curr_explored).find(line) == graph.find_lines_in_stop(curr_explored).end()) {
+					line = *graph.find_lines_in_stop(curr_explored).begin();
+				}
+				stop_line[curr_explored] = line->getName();
 				qu.push(curr_explored);
 				visited[curr_explored] = curr;
+
 			};
 		}
 	}
@@ -47,10 +58,26 @@ void AnyPath::search(Graph& graph, int start, int stop)
 		out.reverse();
 		int last = out.back();
 		out.pop_back();
-		for (const auto& it : out) {
-			std::cout << it << " --> ";
+		string stop_name = "";
+		bool first_flag = true;
+		int prev;
+		for (const auto& it : out) { 
+			if (stop_name != stop_line[it] && first_flag) {
+				stop_name = stop_line[it];
+				std::cout << "->" << stop_line[it] << std::endl;
+				first_flag = false;
+			}
+			else if (stop_name != stop_line[it]) {
+				std::cout << std::endl << "->" << stop_line[it] << std::endl;
+				stop_name = stop_line[it];
+				std::cout << prev << " ";
+			}
+			std::cout << it << " ";
+			prev = it;
 		}
 		std::cout << last;
+		
+
 	}
 	else {
 		std::cout << "Ne postoji put do trazene stanice";

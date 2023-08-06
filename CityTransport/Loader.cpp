@@ -111,7 +111,7 @@ void Loader::save_stop(int id)
 void Loader::searchPath()
 {
 	strategy_ = new AnyPath;
-	strategy_->search(*graph_, 1212, 154);
+	strategy_->search(*graph_, 123, 1221);
 }
 
 
