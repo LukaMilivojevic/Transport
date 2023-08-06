@@ -1,9 +1,10 @@
 #include "UserMenu.h";
 #include "Loader.h"
+#include "Info.h"
 
 int main() {
 	Loader* ld = new Loader("linije.txt", "stajalista.txt");
-	ld->load_stops();
-	ld->load_lines();
+	ld->save_line("MINI");
+	ld->save_stop(1221);
 	return 0;
 }

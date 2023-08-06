@@ -19,6 +19,10 @@ public:
 
 	void print_stops();
 
+	list <const Stop*>& get_stops();
+
+	friend std::ostream& operator<<(std::ostream& os, const Line& line);
+
 protected:
 
 private:

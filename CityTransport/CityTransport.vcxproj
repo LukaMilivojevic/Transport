@@ -131,17 +131,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Info.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Stop.h" />
+    <ClInclude Include="Strategy.h" />
     <ClInclude Include="UserMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Info.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Stop.cpp" />
+    <ClCompile Include="Strategy.cpp" />
     <ClCompile Include="UserMenu.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

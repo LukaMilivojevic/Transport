@@ -1,17 +1,17 @@
 #include "Stop.h"
 #include <ostream>
 
-int Stop::getId()
+int Stop::getId() const
 {
     return stop_id_;
 }
 
-std::string Stop::getName()
+std::string Stop::getName() const
 {
     return stop_name_;
 }
 
-bool Stop::getImportance()
+bool Stop::getImportance() const
 {
     return important_;
 }

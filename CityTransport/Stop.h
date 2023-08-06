@@ -9,11 +9,13 @@ public:
 
 	Stop(const int& stop_id, const std::string& stop_name, bool important=false) : stop_id_(stop_id), stop_name_(stop_name), important_(important) {};
 
-	int getId();
-	std::string getName();
-	bool getImportance();
+	int getId() const;
+	std::string getName() const;
+	bool getImportance() const;
 
 	friend std::ostream& operator<<(std::ostream& os, const Stop& stop);
+
+
 
 private:
 
