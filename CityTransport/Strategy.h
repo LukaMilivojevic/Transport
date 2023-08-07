@@ -23,6 +23,8 @@ class LeastChanges : public Strategy
 class AllImportant : public Strategy
 {
 	virtual void search(Graph& graph, int start, int stop);
+private:
+	void search_output();
 };
 
 #endif

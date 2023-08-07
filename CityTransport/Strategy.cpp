@@ -97,7 +97,6 @@ void LeastChanges::search(Graph& graph, int start, int stop)
 
 void AllImportant::search(Graph& graph, int start, int stop)
 {
-	stop = -1;
 	queue<int> qu;
 	unordered_map<int, int> visited;
 	unordered_map<int, string> stop_line;
@@ -106,16 +105,19 @@ void AllImportant::search(Graph& graph, int start, int stop)
 	Line* line = *graph.find_lines_in_stop(start).begin();
 	stop_line[start] = line->getName();
 	int curr, curr_explored;
-	bool flag = true;
-	while (!qu.empty() && flag) {
+	set <int> important;
+	while (!qu.empty()) {
 		curr = qu.front();
 		qu.pop();
-		std::cout << curr << "-> ";
 		for (const auto& it : graph.find_adj_stops(curr)) {
 			curr_explored = it->getId();
 			if (!visited.count(curr_explored)) {
 				if (graph.find_lines_in_stop(curr_explored).find(line) == graph.find_lines_in_stop(curr_explored).end()) {
 					line = *graph.find_lines_in_stop(curr_explored).begin();
+				}
+				for (auto const& imp : graph.find_adj_stops(curr_explored)) {
+					if (imp->getImportance())
+						important.insert(imp->getId());
 				}
 				stop_line[curr_explored] = line->getName();
 				qu.push(curr_explored);
@@ -124,4 +126,12 @@ void AllImportant::search(Graph& graph, int start, int stop)
 			};
 		}
 	}
+	for (const auto& it : important) {
+		std::cout << it << " - ";
+	}
+
+}
+
+void AllImportant::search_output()
+{
 }
