@@ -21,6 +21,7 @@ class Graph
 {
 public:
 	Graph(const list<Line*>&);
+	~Graph();
 	set<const Stop*>& find_adj_stops(int) ;
 	set<Line*>& find_lines_in_stop(int) ;
 

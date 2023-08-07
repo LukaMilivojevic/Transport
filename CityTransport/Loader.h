@@ -25,6 +25,8 @@ public:
 		load_lines();
 	};
 
+	~Loader();
+
 	/**
 	* Ucitavanje linija iz fajla u listu pokazivaca na objekte klase Line
 	*/

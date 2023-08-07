@@ -13,6 +13,16 @@
 
 using std::set;
 
+Loader::~Loader()
+{
+	for (const auto& it : lines)
+		delete it;
+	for (const auto& it : stops_)
+		delete it;
+	delete graph_;
+	delete strategy_;
+}
+
 void Loader::load_lines()
 {
 	std::ifstream input;
@@ -111,6 +121,7 @@ void Loader::save_stop(int id)
 void Loader::searchPath()
 {
 	strategy_ = new AnyPath;
+	//strategy_ = new AllImportant;
 	strategy_->search(*graph_, 123, 1221);
 }
 

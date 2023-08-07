@@ -37,6 +37,10 @@ Graph::Graph(const list<Line*>& lines)
 	}
 }
 
+Graph::~Graph()
+{
+}
+
 set<const Stop*>& Graph::find_adj_stops(int id)
 {
 	return adj_[id];

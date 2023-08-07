@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Exceptions.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Info.h" />
     <ClInclude Include="Line.h" />
@@ -141,6 +142,7 @@
     <ClInclude Include="UserMenu.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Info.cpp" />
     <ClCompile Include="Line.cpp" />

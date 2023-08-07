@@ -20,4 +20,9 @@ class LeastChanges : public Strategy
 	virtual void search(Graph& graph, int start, int stop);
 };
 
+class AllImportant : public Strategy
+{
+	virtual void search(Graph& graph, int start, int stop);
+};
+
 #endif
