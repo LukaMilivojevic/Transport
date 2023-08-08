@@ -125,18 +125,14 @@ void AllImportant::search(Graph& graph, int start, int stop)
 			};
 		}
 	}
-	//int first = *important_.begin();
-	//important_.erase(first);
 	std::string filepath = "bitnaStajalista_" + std::to_string(start) + ".txt";
 	std::ofstream save_file;
 	save_file.open(filepath);
 	for (const auto& it : important_) {
-		//if (it != *(--important_.end()))
-		//std::cout << "START: " << start <<  " KRAJ " << it << std::endl;
 			search_output(graph, start, it, save_file);
 			start = it;
 	}
-
+	
 }
 
 void AllImportant::search_output(Graph& graph, int start, int stop, std::ofstream& save_file)
@@ -169,8 +165,6 @@ void AllImportant::search_output(Graph& graph, int start, int stop, std::ofstrea
 				stop_line[curr_explored] = line->getName();
 				qu.push(curr_explored);
 				visited[curr_explored] = curr;
-				//if (important_.find(curr_explored) != important_.end())
-				//	important_.erase(curr_explored);
 
 			};
 		}
@@ -195,27 +189,19 @@ void AllImportant::search_output(Graph& graph, int start, int stop, std::ofstrea
 			if (stop_name != stop_line[it] && first_flag) {
 				stop_name = stop_line[it];
 				save_file << "->" << stop_line[it] << std::endl;
-				//std::cout << "->" << stop_line[it] << std::endl;
 				first_flag = false;
 			}
 			else if (stop_name != stop_line[it]) {
 				save_file << std::endl << "->" << stop_line[it] << std::endl;
-				//std::cout << std::endl << "->" << stop_line[it] << std::endl;
 				stop_name = stop_line[it];
 				save_file << prev << " ";
-				//std::cout << prev << " ";
 			}
 			save_file << it << " ";
-			//std::cout << it << " ";
 			prev = it;
 		}
 		save_file << last << std::endl;
-		//std::cout << last << std::endl;
-
-
 	}
 	else {
 		std::cout << "Ne postoji put do trazene stanice";
 	}
-
 }

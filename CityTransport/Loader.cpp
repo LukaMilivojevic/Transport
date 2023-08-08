@@ -122,7 +122,7 @@ void Loader::searchPath()
 {
 	//strategy_ = new AnyPath;
 	strategy_ = new AllImportant;
-	strategy_->search(*graph_, 123, 1221);
+	strategy_->search(*graph_, 1212, 1221);
 }
 
 

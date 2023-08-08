@@ -22,6 +22,7 @@ class LeastChanges : public Strategy
 
 class AllImportant : public Strategy
 {
+public:
 	virtual void search(Graph& graph, int start, int stop);
 private:
 	void search_output(Graph& graph, int start, int stop, std::ofstream& save_file);
