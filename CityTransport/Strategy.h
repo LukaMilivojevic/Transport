@@ -24,7 +24,9 @@ class AllImportant : public Strategy
 {
 	virtual void search(Graph& graph, int start, int stop);
 private:
-	void search_output();
+	void search_output(Graph& graph, int start, int stop, std::ofstream& save_file);
+
+	set <int> important_;
 };
 
 #endif
