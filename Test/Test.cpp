@@ -10,7 +10,7 @@ int main() {
 	ld->searchPath();
 	delete ld;*/
 	UserMenu* menu = UserMenu::GetInstance();
-	menu->ispis();
+	menu->start();
 	_CrtDumpMemoryLeaks();
 	return 0;
 }
