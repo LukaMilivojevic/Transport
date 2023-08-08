@@ -14,15 +14,14 @@ public:
 
 	void operator=(const UserMenu&) = delete;
 
-	static UserMenu* GetInstance();//const std::string& value);
+	static UserMenu* GetInstance();
 
 	void start();
 
 	void app();
 
 	~UserMenu() {
-		if (!loader_)
-			delete loader_;
+		delete loader_;
 	}
 	
 protected:
@@ -30,13 +29,7 @@ protected:
 
 	static UserMenu* user_menu_;
 
-	static const string start_user_message_;
-
-	static const string working_menu_;
-
-	static const string stop_prompt_;
-
-	static const string line_prompt_;
+	static const string start_user_message_, working_menu_, stop_file_prompt_, line_file_prompt_, save_stop_prompt_, save_line_prompt_, path_options_;
 
 private:
 	Loader* loader_;

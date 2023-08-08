@@ -74,6 +74,7 @@ void Loader::load_stops()
 			stops_.push_back(new Stop(stop_id, stop_name, important));
 			stop_map[stop_id] = stops_.back();
 		}
+		std::cout << "Gradska mreza je uspesno ocitana." << std::endl;
 	}
 	else {
 		std::cout << "File not found." << std::endl;
@@ -93,8 +94,9 @@ void Loader::save_line(const std::string& line_id)
 			save_file.open(filepath);
 			save_file <<  *it;
 			save_file.close();
+			std::cout << "Generisan je fajl sa informacijama o liniji na putanji: " << filepath << std::endl;
 			break;
-		} 
+		}
 }
 
 void Loader::save_stop(int id)
@@ -116,13 +118,30 @@ void Loader::save_stop(int id)
 			save_file << it->getId() << " ";
 	}
 	save_file << "!}";
+	std::cout << "Generisan je fajl sa informacijama o stajalistu na putanji: " << filepath << std::endl;
 }
 
-void Loader::searchPath()
+void Loader::searchPath(int type, int start, int stop)
 {
 	//strategy_ = new AnyPath;
-	strategy_ = new AllImportant;
-	strategy_->search(*graph_, 1212, 1221);
+	//strategy_ = new AllImportant;
+	if (type == 1) {
+		if (!strategy_)
+		{
+			delete strategy_;
+			strategy_ = nullptr;
+		}
+		strategy_ = new AnyPath;
+	}
+	else if (type == 2) {
+		if (!strategy_)
+		{
+			delete strategy_;
+			strategy_ = nullptr;
+		}
+		strategy_ = new AllImportant;
+	}
+	strategy_->search(*graph_, start, stop);
 }
 
 

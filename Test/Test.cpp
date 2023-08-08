@@ -11,6 +11,7 @@ int main() {
 	delete ld;*/
 	UserMenu* menu = UserMenu::GetInstance();
 	menu->start();
+	delete menu;
 	_CrtDumpMemoryLeaks();
 	return 0;
 }

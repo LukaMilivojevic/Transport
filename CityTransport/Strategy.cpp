@@ -81,7 +81,7 @@ void AnyPath::search(Graph& graph, int start, int stop)
 		}
 		save_file << last;
 		
-
+		std::cout << "Putanja je sacuvana na lokaciji: " << filepath << std::endl;
 	}
 	else {
 		std::cout << "Ne postoji put do trazene stanice";
@@ -132,7 +132,7 @@ void AllImportant::search(Graph& graph, int start, int stop)
 			search_output(graph, start, it, save_file);
 			start = it;
 	}
-	
+	std::cout << "Putanja je sacuvana na lokaciji: " << filepath << std::endl;
 }
 
 void AllImportant::search_output(Graph& graph, int start, int stop, std::ofstream& save_file)

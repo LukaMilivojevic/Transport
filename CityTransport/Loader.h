@@ -47,7 +47,7 @@ public:
 	*/
 	void save_stop(int);
 
-	void searchPath();
+	void searchPath(int, int, int);
 
 private:
 	Strategy* strategy_;
